@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowLink } from "@/components/ArrowLink";
 import { ideas, sources, timeline } from "@/lib/data";
 
@@ -5,7 +6,7 @@ export default function Home() {
   return (
     <>
       <section className="hero section-shell">
-        <div className="hero-copy reveal">
+        <div className="hero-copy" data-reveal>
           <p className="eyebrow">Haruki Ohsawa · Executive Portfolio</p>
           <h1>
             声をひらき、
@@ -24,19 +25,25 @@ export default function Home() {
             </ArrowLink>
           </div>
         </div>
-        <div className="hero-portrait" aria-label="大澤陽樹氏を表すタイポグラフィ">
+        <figure className="hero-portrait" data-reveal>
+          <Image
+            src="/images/photo-01.jpg"
+            alt="スーツ姿で正面を見つめる大澤陽樹氏"
+            fill
+            priority
+            sizes="(max-width: 860px) 90vw, 42vw"
+          />
           <span className="portrait-line">MEANING</span>
-          <div className="portrait-initials">HO</div>
           <div className="portrait-caption">
-            <span>OpenWork Inc.</span>
-            <span>President &amp; CEO</span>
+            <span>大澤 陽樹 / Haruki Ohsawa</span>
+            <span>OpenWork Inc. President &amp; CEO</span>
           </div>
-        </div>
+        </figure>
       </section>
 
       <section className="statement section-shell">
         <p className="section-index">01 / Mission</p>
-        <div>
+        <div data-reveal>
           <p className="large-statement">
             「社会を変える
             <br />
@@ -49,6 +56,27 @@ export default function Home() {
           <a className="source-note" href={sources.interview} target="_blank" rel="noreferrer">
             出典：社長名鑑 インタビュー（2023）↗
           </a>
+        </div>
+      </section>
+
+      <section className="visual-story section-shell">
+        <figure className="visual-story-main" data-reveal>
+          <Image
+            src="/images/photo-02.jpg"
+            alt="対話しながら手振りを交えて話す大澤陽樹氏"
+            fill
+            sizes="(max-width: 860px) 100vw, 58vw"
+          />
+        </figure>
+        <div className="visual-story-copy" data-reveal>
+          <p className="section-index">Leadership in action</p>
+          <h2>データだけでは、<br />人は動かない。</h2>
+          <p>
+            現場の声を聞き、問いを立て、組織を巻き込む。
+            研究からコンサルティング、事業づくりへと進んだ経験が、
+            データと人間を同時に見る経営スタイルを形づくっています。
+          </p>
+          <ArrowLink href="/profile">人物像を深く知る</ArrowLink>
         </div>
       </section>
 
@@ -82,12 +110,36 @@ export default function Home() {
         </div>
         <div className="idea-grid">
           {ideas.map((idea) => (
-            <article className="idea-card" key={idea.number}>
+            <article className="idea-card" key={idea.number} data-reveal>
               <span>{idea.number}</span>
               <h3>{idea.title}</h3>
               <p>{idea.body}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="media-mosaic">
+        <div className="section-shell">
+          <div className="section-heading">
+            <div>
+              <p className="section-index">On screen</p>
+              <h2>働くを、社会の話題に。</h2>
+            </div>
+            <ArrowLink href="/media">メディア活動</ArrowLink>
+          </div>
+          <div className="mosaic-grid">
+            {[
+              ["media-consulting.jpg", "コンサルティング業界をデータで分析"],
+              ["media-dentsu.jpg", "企業の働きがいを検証"],
+              ["media-career.jpg", "キャリアの選び方を議論"],
+              ["media-talk.jpg", "経営者との対話"],
+            ].map(([image, alt], index) => (
+              <figure key={image} className={`mosaic-item mosaic-${index + 1}`} data-reveal>
+                <Image src={`/images/${image}`} alt={alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -101,7 +153,7 @@ export default function Home() {
         </div>
         <div className="journey-list">
           {timeline.slice(0, 6).map((item) => (
-            <article key={item.year}>
+            <article key={item.year} data-reveal>
               <time>{item.year}</time>
               <h3>{item.title}</h3>
               <p>{item.detail}</p>

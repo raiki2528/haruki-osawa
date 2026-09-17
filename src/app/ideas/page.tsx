@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ideas, sources } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function IdeasPage() {
 
       <section className="ideas-long section-shell">
         {ideas.map((idea) => (
-          <article key={idea.number}>
+          <article key={idea.number} data-reveal>
             <div className="idea-number">{idea.number}</div>
             <div>
               <h2>{idea.title}</h2>
@@ -32,6 +33,24 @@ export default function IdeasPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className="idea-visual section-shell">
+        <figure data-reveal>
+          <Image
+            src="/images/photo-02.jpg"
+            alt="考えを説明する大澤陽樹氏"
+            fill
+            sizes="(max-width: 860px) 100vw, 52vw"
+          />
+        </figure>
+        <blockquote data-reveal>
+          <span>VISION</span>
+          「企業と働く人が<br />お互いを選び合う社会」
+          <a href={sources.porters} target="_blank" rel="noreferrer">
+            PORTERS MAGAZINE インタビュー ↗
+          </a>
+        </blockquote>
       </section>
 
       <section className="logic-section section-shell">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowLink } from "@/components/ArrowLink";
 import { sources, timeline } from "@/lib/data";
 
@@ -21,12 +22,16 @@ export default function ProfilePage() {
       </section>
 
       <section className="profile-intro section-shell">
-        <div className="profile-monogram" aria-hidden="true">
-          <span>1985</span>
-          <b>大澤<br />陽樹</b>
-          <small>Haruki Ohsawa</small>
-        </div>
-        <div className="profile-copy">
+        <figure className="profile-photo" data-reveal>
+          <Image
+            src="/images/photo-03.jpg"
+            alt="オフィスで立つ大澤陽樹氏"
+            fill
+            sizes="(max-width: 860px) 100vw, 42vw"
+          />
+          <figcaption>Haruki Ohsawa / OpenWork Inc.</figcaption>
+        </figure>
+        <div className="profile-copy" data-reveal>
           <p className="section-index">Biography</p>
           <h2>オープンワーク株式会社<br />代表取締役社長</h2>
           <p>
@@ -46,6 +51,18 @@ export default function ProfilePage() {
         </div>
       </section>
 
+      <section className="portrait-triptych section-shell" aria-label="大澤陽樹氏のポートレート">
+        <figure data-reveal>
+          <Image src="/images/portrait.jpg" alt="笑顔の大澤陽樹氏のクローズアップ" fill sizes="33vw" />
+        </figure>
+        <figure data-reveal>
+          <Image src="/images/photo-02.jpg" alt="インタビューで話す大澤陽樹氏" fill sizes="33vw" />
+        </figure>
+        <figure data-reveal>
+          <Image src="/images/photo-01.jpg" alt="腕を組んで立つ大澤陽樹氏" fill sizes="33vw" />
+        </figure>
+      </section>
+
       <section className="story-section section-shell">
         <div className="section-heading">
           <div>
@@ -55,7 +72,7 @@ export default function ProfilePage() {
         </div>
         <div className="full-timeline">
           {timeline.map((item) => (
-            <article key={item.year}>
+            <article key={item.year} data-reveal>
               <time>{item.year}</time>
               <div>
                 <h3>{item.title}</h3>

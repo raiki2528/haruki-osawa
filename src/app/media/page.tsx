@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { media, sources } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -59,9 +60,26 @@ export default function MediaPage() {
           </div>
           <p className="media-count">公式掲載 <strong>191</strong> 件</p>
         </div>
+        <div className="featured-media-grid">
+          {media.filter((item) => item.image).map((item, index) => (
+            <a
+              className={index === 0 ? "featured-media featured-media-lead" : "featured-media"}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              key={`${item.date}-${item.title}-visual`}
+              data-reveal
+            >
+              <Image src={item.image!} alt="" fill sizes="(max-width: 700px) 100vw, 50vw" />
+              <span>{item.outlet}</span>
+              <strong>{item.title}</strong>
+              <i aria-hidden="true">↗</i>
+            </a>
+          ))}
+        </div>
         <div className="media-list">
           {media.map((item) => (
-            <article key={`${item.date}-${item.title}`}>
+            <article key={`${item.date}-${item.title}`} data-reveal>
               <time>{item.date}</time>
               <span>{item.type}</span>
               <div>
@@ -94,7 +112,7 @@ export default function MediaPage() {
         <h2>研究と実践を往復する。</h2>
         <div className="activity-grid">
           {activity.map((group) => (
-            <article key={group.label}>
+            <article key={group.label} data-reveal>
               <span>{group.label}</span>
               <h3>{group.title}</h3>
               <ul>

@@ -5,6 +5,15 @@ export type TimelineItem = {
   source?: string;
 };
 
+export type MediaItem = {
+  date: string;
+  type: string;
+  outlet: string;
+  title: string;
+  href?: string;
+  image?: string;
+};
+
 export const sources = {
   official: "https://harukiohsawa.com/",
   company: "https://www.openwork.co.jp/about",
@@ -111,12 +120,14 @@ export const books = [
   },
 ];
 
-export const media = [
+export const media: MediaItem[] = [
   {
     date: "2026.08",
     type: "動画",
     outlet: "PIVOT CAREER",
     title: "INDUSTRY MAP 2026「コンサルティング業界の業界地図」前後編",
+    href: "https://www.youtube.com/watch?v=lh8xYt7xsPo",
+    image: "/images/media-consulting.jpg",
   },
   {
     date: "2026.08",
@@ -135,12 +146,16 @@ export const media = [
     type: "動画",
     outlet: "PIVOT CAREER",
     title: "INDUSTRY MAP 2026「半導体産業の業界地図」前後編",
+    href: "https://www.youtube.com/watch?v=P1IPBjR_MEc",
+    image: "/images/media-semiconductor.jpg",
   },
   {
     date: "2026.07",
     type: "動画",
     outlet: "バトンズ公式チャンネル",
     title: "M&A後のリアル：8社買収し家業を急成長させた社長",
+    href: "https://www.youtube.com/watch?v=vbnsCqqlVbk",
+    image: "/images/media-ma.jpg",
   },
   {
     date: "2026.06",
@@ -148,6 +163,14 @@ export const media = [
     outlet: "日経BizGate",
     title: "社員口コミから分かった 働きがいと財務の関係性",
     href: sources.bizgate,
+  },
+  {
+    date: "2026.06",
+    type: "動画",
+    outlet: "バトンズ公式チャンネル",
+    title: "M&A後のリアル：M&Aで飛躍するエンタメ企業",
+    href: "https://youtu.be/r733hn3fZk4",
+    image: "/images/media-talk.jpg",
   },
   {
     date: "2026.03",
@@ -160,6 +183,8 @@ export const media = [
     type: "動画",
     outlet: "PIVOT",
     title: "電通「働きがい1位」の真相",
+    href: "https://youtu.be/sg0PLYdkjC0",
+    image: "/images/media-dentsu.jpg",
   },
   {
     date: "2025.03–",
@@ -190,11 +215,35 @@ export const media = [
     href: sources.interview,
   },
   {
+    date: "2023.11",
+    type: "動画",
+    outlet: "PIVOT",
+    title: "社員クチコミ評価スコアを使ったキャリアの導き方",
+    href: "https://www.youtube.com/watch?v=VCV0d7gMHnw",
+    image: "/images/media-career.jpg",
+  },
+  {
     date: "2023.07",
     type: "Podcast",
     outlet: "社長に聞く！in WizBiz",
     title: "研究から経営へ、OpenWorkとの出会い",
     href: sources.keiei,
+  },
+  {
+    date: "2023.02",
+    type: "動画",
+    outlet: "転職のサラタメチャンネル",
+    title: "『1300万件のクチコミで分かった超優良企業』を解説",
+    href: "https://www.youtube.com/watch?v=-R0uL7l1Tuw",
+    image: "/images/media-book.jpg",
+  },
+  {
+    date: "2021.12",
+    type: "CM",
+    outlet: "日経スペシャル カンブリア宮殿",
+    title: "企画CM「アイデアの扉」",
+    href: "https://www.youtube.com/watch?v=MSisNKgjZ68",
+    image: "/images/media-cambria.jpg",
   },
 ];
 

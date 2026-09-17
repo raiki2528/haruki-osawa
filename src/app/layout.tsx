@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <MotionEffects />
         <a className="skip-link" href="#main">
           本文へ移動
         </a>
