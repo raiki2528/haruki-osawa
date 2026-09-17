@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ArrowLink } from "@/components/ArrowLink";
-import { sources, timeline } from "@/lib/data";
+import { ContentImage } from "@/components/ContentImage";
+import { books, sources, timeline } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Profile / Story",
   description: "大澤陽樹氏のプロフィールと、研究から経営へ至るキャリアの軌跡。",
 };
+
+const galleryImages = [
+  { src: "/images/portrait.jpg", alt: "笑顔の大澤陽樹氏のクローズアップ" },
+  { src: "/images/media-dentsu.jpg", alt: "PIVOT出演：電通の働きがいを検証" },
+  { src: "/images/media-career.jpg", alt: "キャリアとクチコミスコアを語る登壇" },
+] as const;
 
 export default function ProfilePage() {
   return (
@@ -23,7 +29,7 @@ export default function ProfilePage() {
 
       <section className="profile-intro section-shell">
         <figure className="profile-photo" data-reveal>
-          <Image
+          <ContentImage
             src="/images/photo-03.jpg"
             alt="オフィスで立つ大澤陽樹氏"
             fill
@@ -51,16 +57,36 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      <section className="portrait-triptych section-shell" aria-label="大澤陽樹氏のポートレート">
-        <figure data-reveal>
-          <Image src="/images/portrait.jpg" alt="笑顔の大澤陽樹氏のクローズアップ" fill sizes="33vw" />
-        </figure>
-        <figure data-reveal>
-          <Image src="/images/photo-02.jpg" alt="インタビューで話す大澤陽樹氏" fill sizes="33vw" />
-        </figure>
-        <figure data-reveal>
-          <Image src="/images/photo-01.jpg" alt="腕を組んで立つ大澤陽樹氏" fill sizes="33vw" />
-        </figure>
+      <section className="portrait-triptych section-shell" aria-label="ポートレートと登壇">
+        {galleryImages.map((item) => (
+          <figure key={item.src} data-reveal>
+            <ContentImage src={item.src} alt={item.alt} fill sizes="(max-width: 860px) 100vw, 33vw" />
+          </figure>
+        ))}
+      </section>
+
+      <section className="profile-books section-shell">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">Publications</p>
+            <h2>著書</h2>
+          </div>
+        </div>
+        <div className="books-compact">
+          {books.map((book) => (
+            <article key={book.title} data-reveal>
+              <time>{book.year}</time>
+              <div>
+                <h3>{book.title}</h3>
+                <p>{book.publisher}</p>
+                <p>{book.theme}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <a className="source-note" href={sources.official} target="_blank" rel="noreferrer">
+          著書の詳細は本人公式サイト ↗
+        </a>
       </section>
 
       <section className="story-section section-shell">

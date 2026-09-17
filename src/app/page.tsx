@@ -1,6 +1,13 @@
-import Image from "next/image";
 import { ArrowLink } from "@/components/ArrowLink";
+import { ContentImage } from "@/components/ContentImage";
 import { ideas, sources, timeline } from "@/lib/data";
+
+const mosaicImages = [
+  ["media-consulting.jpg", "PIVOT CAREER：コンサル業界地図"],
+  ["media-semiconductor.jpg", "PIVOT CAREER：半導体産業地図"],
+  ["media-ma.jpg", "バトンズ：M&A後のリアル"],
+  ["media-cambria.jpg", "カンブリア宮殿：アイデアの扉"],
+] as const;
 
 export default function Home() {
   return (
@@ -26,7 +33,7 @@ export default function Home() {
           </div>
         </div>
         <figure className="hero-portrait" data-reveal>
-          <Image
+          <ContentImage
             src="/images/photo-01.jpg"
             alt="スーツ姿で正面を見つめる大澤陽樹氏"
             fill
@@ -61,7 +68,7 @@ export default function Home() {
 
       <section className="visual-story section-shell">
         <figure className="visual-story-main" data-reveal>
-          <Image
+          <ContentImage
             src="/images/photo-02.jpg"
             alt="対話しながら手振りを交えて話す大澤陽樹氏"
             fill
@@ -129,14 +136,14 @@ export default function Home() {
             <ArrowLink href="/media">メディア活動</ArrowLink>
           </div>
           <div className="mosaic-grid">
-            {[
-              ["media-consulting.jpg", "コンサルティング業界をデータで分析"],
-              ["media-dentsu.jpg", "企業の働きがいを検証"],
-              ["media-career.jpg", "キャリアの選び方を議論"],
-              ["media-talk.jpg", "経営者との対話"],
-            ].map(([image, alt], index) => (
+            {mosaicImages.map(([image, alt], index) => (
               <figure key={image} className={`mosaic-item mosaic-${index + 1}`} data-reveal>
-                <Image src={`/images/${image}`} alt={alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
+                <ContentImage
+                  src={`/images/${image}`}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 700px) 100vw, 34vw"
+                />
               </figure>
             ))}
           </div>

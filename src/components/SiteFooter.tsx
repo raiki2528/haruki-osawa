@@ -12,7 +12,6 @@ export function SiteFooter() {
         <div className="footer-links">
           <Link href="/profile">Profile / Story</Link>
           <Link href="/ideas">Ideas</Link>
-          <Link href="/books">Books</Link>
           <Link href="/media">Media</Link>
           <a href={sources.official} target="_blank" rel="noreferrer">
             公式サイト ↗

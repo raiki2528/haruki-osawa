@@ -4,34 +4,38 @@ import { useEffect } from "react";
 
 export function MotionEffects() {
   useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
-    );
-
-    elements.forEach((element, index) => {
-      element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 70}ms`);
-      observer.observe(element);
-    });
+    const header = document.querySelector(".site-header");
+    let ticking = false;
 
     const onScroll = () => {
-      document.documentElement.style.setProperty("--scroll-y", `${window.scrollY}px`);
-      document.querySelector(".site-header")?.classList.toggle("is-scrolled", window.scrollY > 20);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        header?.classList.toggle("is-scrolled", window.scrollY > 20);
+        ticking = false;
+      });
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px 8% 0px" },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
     };
   }, []);
 

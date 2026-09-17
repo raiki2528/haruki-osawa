@@ -583,12 +583,12 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 30px 80px rgba(16,36,63,.15);
 }
 .visual-story-main img { object-fit: cover; }
-.visual-story-copy h2, .book-feature h2 {
+.visual-story-copy h2 {
   margin: 0 0 28px;
   font: 500 clamp(34px, 4.5vw, 60px)/1.3 "Hiragino Mincho ProN", "Yu Mincho", serif;
   letter-spacing: -.04em;
 }
-.visual-story-copy > p:not(.section-index), .book-feature > div > p:not(.section-index) { color: var(--muted); font-size: 14px; }
+.visual-story-copy > p:not(.section-index) { color: var(--muted); font-size: 14px; }
 .visual-story-copy .arrow-link { margin-top: 22px; }
 .idea-card, .activity-grid article {
   border-radius: 24px;
@@ -683,23 +683,24 @@ img { display: block; max-width: 100%; }
 .idea-visual blockquote span { margin-bottom: 30px; color: #83e1d6; font: 800 10px/1 sans-serif; letter-spacing: .22em; }
 .idea-visual blockquote a { margin-top: 40px; color: #cfe0f8; font: 700 10px/1.6 sans-serif; }
 
-.book-feature {
-  margin-bottom: 140px;
+.profile-books { padding-bottom: 120px; border-top: 1px solid var(--line); }
+.books-compact { border-top: 1px solid var(--line); }
+.books-compact article {
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 8vw;
-  align-items: center;
+  grid-template-columns: 90px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
 }
-.book-feature figure {
-  position: relative;
-  min-height: 470px;
-  margin: 0;
-  overflow: hidden;
-  border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(16,36,63,.12);
+.books-compact time { color: var(--blue); font: 400 18px/1.4 Georgia, serif; }
+.books-compact h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.45; }
+.books-compact p { margin: 0 0 6px; color: var(--muted); font-size: 13px; }
+.books-compact p:last-child { margin: 0; }
+
+.journey, .media-mosaic, .story-section, .media-section, .activity-section, .ideas-long {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
 }
-.book-feature figure img { object-fit: cover; }
-.book-feature a { display: inline-block; margin-top: 20px; color: var(--blue); font-size: 12px; font-weight: 800; }
 
 .featured-media-grid {
   display: grid;
@@ -760,7 +761,7 @@ img { display: block; max-width: 100%; }
   .page-hero .eyebrow { grid-column: auto; }
   .profile-intro { grid-template-columns: 1fr; }
   .profile-photo { min-height: 620px; }
-  .visual-story, .idea-visual, .book-feature { grid-template-columns: 1fr; }
+  .visual-story, .idea-visual { grid-template-columns: 1fr; }
   .visual-story-main { min-height: 560px; }
   .idea-visual figure { min-height: 560px; border-radius: 28px 28px 0 0; }
   .idea-visual blockquote { min-height: 420px; border-radius: 0 0 28px 28px; }

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { media, sources } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Media",
   description: "大澤陽樹氏のメディア出演、掲載、講演、研究活動。",
 };
+
+const featuredMedia = media.filter((item) => item.image).slice(0, 4);
 
 const activity = [
   {
@@ -61,7 +63,7 @@ export default function MediaPage() {
           <p className="media-count">公式掲載 <strong>191</strong> 件</p>
         </div>
         <div className="featured-media-grid">
-          {media.filter((item) => item.image).map((item, index) => (
+          {featuredMedia.map((item, index) => (
             <a
               className={index === 0 ? "featured-media featured-media-lead" : "featured-media"}
               href={item.href}
@@ -70,7 +72,12 @@ export default function MediaPage() {
               key={`${item.date}-${item.title}-visual`}
               data-reveal
             >
-              <Image src={item.image!} alt="" fill sizes="(max-width: 700px) 100vw, 50vw" />
+              <ContentImage
+                src={item.image!}
+                alt=""
+                fill
+                sizes={index === 0 ? "(max-width: 860px) 100vw, 70vw" : "(max-width: 860px) 100vw, 34vw"}
+              />
               <span>{item.outlet}</span>
               <strong>{item.title}</strong>
               <i aria-hidden="true">↗</i>
@@ -101,7 +108,7 @@ export default function MediaPage() {
             本ページは主要な活動を編集・抜粋しています。全件と最新情報は、
             本人公式サイトのメディア一覧をご確認ください。
           </p>
-          <a href={sources.official} target="_blank" rel="noreferrer">
+          <a href={`${sources.official}media/`} target="_blank" rel="noreferrer">
             191件の公式アーカイブを見る ↗
           </a>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ContentImage } from "@/components/ContentImage";
 import { ideas, sources } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -37,9 +37,9 @@ export default function IdeasPage() {
 
       <section className="idea-visual section-shell">
         <figure data-reveal>
-          <Image
-            src="/images/photo-02.jpg"
-            alt="考えを説明する大澤陽樹氏"
+          <ContentImage
+            src="/images/media-talk.jpg"
+            alt="経営者対談番組での出演シーン"
             fill
             sizes="(max-width: 860px) 100vw, 52vw"
           />
