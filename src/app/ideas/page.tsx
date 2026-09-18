@@ -24,14 +24,11 @@ export default function IdeasPage() {
       <section className="ideas-long section-shell">
         {ideas.map((idea) => (
           <article key={idea.number} data-reveal>
-            <div className="idea-number">{idea.number}</div>
-            <div>
-              <h2>{idea.title}</h2>
-              <p>{idea.body}</p>
-              <a href={idea.source} target="_blank" rel="noreferrer">
-                関連する一次・本人発言を読む ↗
-              </a>
-            </div>
+            <h2>{idea.title}</h2>
+            <p>{idea.body}</p>
+            <a href={idea.source} target="_blank" rel="noreferrer">
+              関連する一次・本人発言を読む ↗
+            </a>
           </article>
         ))}
       </section>
@@ -59,10 +56,10 @@ export default function IdeasPage() {
         <p className="section-index">The Change Logic</p>
         <h2>透明性から、より良い循環へ。</h2>
         <div className="logic-flow" aria-label="社会変革の循環">
-          <div><span>01</span><b>働く人の声</b><p>経験がクチコミとして集まる</p></div>
-          <div><span>02</span><b>情報の透明化</b><p>職場の実態を比較できる</p></div>
-          <div><span>03</span><b>主体的な選択</b><p>個人と企業が互いに選ぶ</p></div>
-          <div><span>04</span><b>誠実な経営</b><p>選ばれる組織へ変わり続ける</p></div>
+          <div><b>働く人の声</b><p>経験がクチコミとして集まる</p></div>
+          <div><b>情報の透明化</b><p>職場の実態を比較できる</p></div>
+          <div><b>主体的な選択</b><p>個人と企業が互いに選ぶ</p></div>
+          <div><b>誠実な経営</b><p>選ばれる組織へ変わり続ける</p></div>
         </div>
       </section>
 

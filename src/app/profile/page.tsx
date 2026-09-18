@@ -5,7 +5,7 @@ import { books, sources, timeline } from "@/lib/data";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Profile / Story",
+  title: "Profile",
   description: "大澤陽樹氏のプロフィールと、研究から経営へ至るキャリアの軌跡。",
 };
 
@@ -19,7 +19,7 @@ export default function ProfilePage() {
   return (
     <>
       <section className="page-hero section-shell">
-        <p className="eyebrow">Profile / Story</p>
+        <p className="eyebrow">Profile</p>
         <h1>社会を変える、<br />手触りを求めて。</h1>
         <p>
           生物学、都市計画、組織人事、新規事業、経営。

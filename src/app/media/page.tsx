@@ -45,7 +45,7 @@ export default function MediaPage() {
   return (
     <>
       <section className="page-hero section-shell">
-        <p className="eyebrow">Media / Activity</p>
+        <p className="eyebrow">Media</p>
         <h1>データと現場を、<br />社会の議論へ。</h1>
         <p>
           経営、人事、投資、キャリア。
@@ -116,7 +116,7 @@ export default function MediaPage() {
       </section>
 
       <section className="activity-section section-shell">
-        <p className="section-index">Research / Speaking</p>
+        <p className="section-index">Research and Speaking</p>
         <h2>研究と実践を往復する。</h2>
         <div className="activity-grid">
           {activity.map((group) => (

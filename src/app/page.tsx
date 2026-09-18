@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <section className="hero section-shell">
         <div className="hero-copy" data-reveal>
-          <p className="eyebrow">Haruki Ohsawa · Executive Portfolio</p>
+          <p className="eyebrow">Haruki Ohsawa Executive Portfolio</p>
           <h1>
             声をひらき、
             <br />
@@ -51,7 +51,7 @@ export default function Home() {
       </section>
 
       <section className="statement section-shell">
-        <p className="section-index">01 / Mission</p>
+        <p className="section-index">Mission</p>
         <div data-reveal>
           <p className="large-statement">
             「社会を変える
@@ -113,7 +113,7 @@ export default function Home() {
       <section className="section-shell home-ideas">
         <div className="section-heading">
           <div>
-            <p className="section-index">02 / Ideas</p>
+            <p className="section-index">Ideas</p>
             <h2>働くを変える、3つの視点。</h2>
           </div>
           <ArrowLink href="/ideas">思想を読む</ArrowLink>
@@ -121,7 +121,6 @@ export default function Home() {
         <div className="idea-grid">
           {ideas.map((idea) => (
             <article className="idea-card" key={idea.number} data-reveal>
-              <span>{idea.number}</span>
               <h3>{idea.title}</h3>
               <p>{idea.body}</p>
             </article>
@@ -151,7 +150,7 @@ export default function Home() {
       <section className="journey section-shell">
         <div className="section-heading">
           <div>
-            <p className="section-index">03 / Journey</p>
+            <p className="section-index">Journey</p>
             <h2>研究から、経営へ。</h2>
           </div>
           <ArrowLink href="/profile">全ストーリー</ArrowLink>

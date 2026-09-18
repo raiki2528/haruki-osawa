@@ -10,7 +10,7 @@ export function SiteFooter() {
           <h2>意味のあふれる社会に。</h2>
         </div>
         <div className="footer-links">
-          <Link href="/profile">Profile / Story</Link>
+          <Link href="/profile">Profile</Link>
           <Link href="/ideas">Ideas</Link>
           <Link href="/media">Media</Link>
           <a href={sources.official} target="_blank" rel="noreferrer">
