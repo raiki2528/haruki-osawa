@@ -249,6 +249,22 @@ export const media: MediaItem[] = [
   },
 ];
 
+export function mediaLinkForImage(image: string): string | undefined {
+  return media.find((item) => item.image === image && item.href)?.href;
+}
+
+export const homeVideoMosaic = (
+  [
+    images.mediaConsulting,
+    images.mediaSemiconductor,
+    images.mediaCambria,
+  ] as const
+).flatMap((image) => {
+  const item = media.find((entry) => entry.image === image && entry.href);
+  if (!item?.href) return [];
+  return [{ src: image, alt: item.title, href: item.href }];
+});
+
 export const ideas = [
   {
     number: "01",

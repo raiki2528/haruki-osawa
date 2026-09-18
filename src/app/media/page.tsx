@@ -7,7 +7,10 @@ export const metadata: Metadata = {
   description: "大澤陽樹氏のメディア出演、掲載、講演、研究活動。",
 };
 
-const featuredMedia = media.filter((item) => item.image).slice(0, 4);
+const featuredMedia = media
+  .filter((item): item is (typeof media)[number] & { image: string; href: string } =>
+    Boolean(item.image && item.href))
+  .slice(0, 4);
 
 const activity = [
   {
@@ -86,23 +89,38 @@ export default function MediaPage() {
           ))}
         </div>
         <div className="media-list">
-          {media.map((item) => (
-            <article key={`${item.date}-${item.title}`} data-reveal>
-              <time>{item.date}</time>
-              <span>{item.type}</span>
-              <div>
-                <small>{item.outlet}</small>
-                <h3>{item.title}</h3>
-              </div>
-              {item.href ? (
-                <a href={item.href} target="_blank" rel="noreferrer" aria-label={`${item.title}を読む`}>
+          {media.map((item) =>
+            item.href ? (
+              <a
+                className="media-list-link"
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                key={`${item.date}-${item.title}`}
+                data-reveal
+              >
+                <time>{item.date}</time>
+                <span>{item.type}</span>
+                <div>
+                  <small>{item.outlet}</small>
+                  <h3>{item.title}</h3>
+                </div>
+                <span className="media-list-arrow" aria-hidden="true">
                   ↗
-                </a>
-              ) : (
+                </span>
+              </a>
+            ) : (
+              <article key={`${item.date}-${item.title}`} data-reveal>
+                <time>{item.date}</time>
+                <span>{item.type}</span>
+                <div>
+                  <small>{item.outlet}</small>
+                  <h3>{item.title}</h3>
+                </div>
                 <i aria-hidden="true">—</i>
-              )}
-            </article>
-          ))}
+              </article>
+            ),
+          )}
         </div>
         <div className="archive-link">
           <p>

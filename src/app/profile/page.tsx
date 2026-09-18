@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowLink } from "@/components/ArrowLink";
 import { ContentImage } from "@/components/ContentImage";
-import { books, sources, timeline } from "@/lib/data";
+import { books, mediaLinkForImage, sources, timeline } from "@/lib/data";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -11,8 +11,18 @@ export const metadata: Metadata = {
 
 const galleryImages = [
   { src: images.portrait, alt: "笑顔の大澤陽樹氏のクローズアップ" },
-  { src: images.mediaDentsu, alt: "PIVOT出演：電通の働きがいを検証", variant: "video" as const },
-  { src: images.mediaCareer, alt: "キャリアとクチコミスコアを語る登壇", variant: "video" as const },
+  {
+    src: images.mediaDentsu,
+    alt: "PIVOT出演：電通の働きがいを検証",
+    variant: "video" as const,
+    href: mediaLinkForImage(images.mediaDentsu),
+  },
+  {
+    src: images.mediaCareer,
+    alt: "キャリアとクチコミスコアを語る登壇",
+    variant: "video" as const,
+    href: mediaLinkForImage(images.mediaCareer),
+  },
 ];
 
 export default function ProfilePage() {
@@ -60,12 +70,9 @@ export default function ProfilePage() {
       </section>
 
       <section className="portrait-triptych section-shell" aria-label="ポートレートと登壇">
-        {galleryImages.map((item) => (
-          <figure
-            key={item.src}
-            className={item.variant === "video" ? "frame-video" : "frame-portrait"}
-            data-reveal
-          >
+        {galleryImages.map((item) => {
+          const frameClass = item.variant === "video" ? "frame-video" : "frame-portrait";
+          const image = (
             <ContentImage
               src={item.src}
               alt={item.alt}
@@ -73,8 +80,30 @@ export default function ProfilePage() {
               variant={item.variant ?? "portrait"}
               sizes="(max-width: 860px) 100vw, 30vw"
             />
-          </figure>
-        ))}
+          );
+
+          if (item.href) {
+            return (
+              <a
+                key={item.src}
+                className={`${frameClass} video-thumb-link`}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${item.alt}（YouTubeで開く）`}
+                data-reveal
+              >
+                {image}
+              </a>
+            );
+          }
+
+          return (
+            <figure key={item.src} className={frameClass} data-reveal>
+              {image}
+            </figure>
+          );
+        })}
       </section>
 
       <section className="profile-books section-shell">

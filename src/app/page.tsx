@@ -1,14 +1,7 @@
 import { ArrowLink } from "@/components/ArrowLink";
 import { ContentImage } from "@/components/ContentImage";
-import { ideas, sources, timeline } from "@/lib/data";
+import { homeVideoMosaic, ideas, sources, timeline } from "@/lib/data";
 import { images } from "@/lib/images";
-
-const mosaicImages = [
-  { src: images.mediaConsulting, alt: "PIVOT CAREER：コンサル業界地図" },
-  { src: images.mediaSemiconductor, alt: "PIVOT CAREER：半導体産業地図" },
-  { src: images.mediaMa, alt: "バトンズ：M&A後のリアル" },
-  { src: images.mediaCambria, alt: "カンブリア宮殿：アイデアの扉" },
-] as const;
 
 export default function Home() {
   return (
@@ -138,10 +131,18 @@ export default function Home() {
             <ArrowLink href="/media">メディア活動</ArrowLink>
           </div>
           <div className="mosaic-grid">
-            {mosaicImages.map((item, index) => (
-              <figure key={item.src} className={`mosaic-item frame-video mosaic-${index + 1}`} data-reveal>
+            {homeVideoMosaic.map((item, index) => (
+              <a
+                key={item.src}
+                className={`mosaic-item frame-video mosaic-${index + 1}`}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${item.alt}（YouTubeで開く）`}
+                data-reveal
+              >
                 <ContentImage src={item.src} alt={item.alt} fill variant="video" sizes="(max-width: 700px) 100vw, 34vw" />
-              </figure>
+              </a>
             ))}
           </div>
         </div>
