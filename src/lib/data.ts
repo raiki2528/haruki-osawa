@@ -159,14 +159,6 @@ export const media: MediaItem[] = [
     href: sources.bizgate,
   },
   {
-    date: "2026.06",
-    type: "動画",
-    outlet: "バトンズ公式チャンネル",
-    title: "M&A後のリアル：M&Aで飛躍するエンタメ企業",
-    href: "https://youtu.be/r733hn3fZk4",
-    image: images.mediaTalk,
-  },
-  {
     date: "2026.03",
     type: "動画",
     outlet: "ナレッジワーク NEW SALESチャンネル",

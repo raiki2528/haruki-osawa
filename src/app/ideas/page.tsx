@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function IdeasPage() {
-  const talkVideoHref = mediaLinkForImage(images.mediaTalk);
+  const ideaVisualHref = mediaLinkForImage(images.mediaCareer);
 
   return (
     <>
@@ -36,18 +36,18 @@ export default function IdeasPage() {
       </section>
 
       <section className="idea-visual section-shell">
-        {talkVideoHref ? (
+        {ideaVisualHref ? (
           <a
             className="frame-video video-thumb-link"
-            href={talkVideoHref}
+            href={ideaVisualHref}
             target="_blank"
             rel="noreferrer"
-            aria-label="経営者対談番組での出演（YouTubeで開く）"
+            aria-label="PIVOT出演（YouTubeで開く）"
             data-reveal
           >
             <ContentImage
-              src={images.mediaTalk}
-              alt="経営者対談番組での出演シーン"
+              src={images.mediaCareer}
+              alt="PIVOT：社員クチコミ評価スコアとキャリア"
               fill
               variant="video"
               sizes="(max-width: 860px) 100vw, 52vw"
@@ -56,8 +56,8 @@ export default function IdeasPage() {
         ) : (
           <figure className="frame-video" data-reveal>
             <ContentImage
-              src={images.mediaTalk}
-              alt="経営者対談番組での出演シーン"
+              src={images.mediaCareer}
+              alt="PIVOT：社員クチコミ評価スコアとキャリア"
               fill
               variant="video"
               sizes="(max-width: 860px) 100vw, 52vw"

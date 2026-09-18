@@ -6,10 +6,8 @@ export const images = {
   photo03: "/images/photo-03.webp",
   mediaConsulting: "/images/media-consulting.webp",
   mediaSemiconductor: "/images/media-semiconductor.webp",
-  mediaMa: "/images/media-ma.webp",
   mediaDentsu: "/images/media-dentsu.webp",
   mediaCareer: "/images/media-career.webp",
   mediaBook: "/images/media-book.webp",
   mediaCambria: "/images/media-cambria.webp",
-  mediaTalk: "/images/media-talk.webp",
 } as const;
