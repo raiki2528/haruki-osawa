@@ -152,14 +152,6 @@ export const media: MediaItem[] = [
     image: images.mediaSemiconductor,
   },
   {
-    date: "2026.07",
-    type: "動画",
-    outlet: "バトンズ公式チャンネル",
-    title: "M&A後のリアル：8社買収し家業を急成長させた社長",
-    href: "https://www.youtube.com/watch?v=vbnsCqqlVbk",
-    image: images.mediaMa,
-  },
-  {
     date: "2026.06",
     type: "取材",
     outlet: "日経BizGate",
