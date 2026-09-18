@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { ContentImage } from "@/components/ContentImage";
-import { ideas, mediaLinkForImage, sources } from "@/lib/data";
-import { images } from "@/lib/images";
+import { ideas, sources } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Ideas",
@@ -9,8 +7,6 @@ export const metadata: Metadata = {
 };
 
 export default function IdeasPage() {
-  const ideaVisualHref = mediaLinkForImage(images.mediaCareer);
-
   return (
     <>
       <section className="page-hero section-shell">
@@ -36,34 +32,6 @@ export default function IdeasPage() {
       </section>
 
       <section className="idea-visual section-shell">
-        {ideaVisualHref ? (
-          <a
-            className="frame-video video-thumb-link"
-            href={ideaVisualHref}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="PIVOT出演（YouTubeで開く）"
-            data-reveal
-          >
-            <ContentImage
-              src={images.mediaCareer}
-              alt="PIVOT：社員クチコミ評価スコアとキャリア"
-              fill
-              variant="video"
-              sizes="(max-width: 860px) 100vw, 52vw"
-            />
-          </a>
-        ) : (
-          <figure className="frame-video" data-reveal>
-            <ContentImage
-              src={images.mediaCareer}
-              alt="PIVOT：社員クチコミ評価スコアとキャリア"
-              fill
-              variant="video"
-              sizes="(max-width: 860px) 100vw, 52vw"
-            />
-          </figure>
-        )}
         <blockquote data-reveal>
           <span>VISION</span>
           「企業と働く人が<br />お互いを選び合う社会」

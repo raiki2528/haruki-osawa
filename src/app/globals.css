@@ -604,11 +604,7 @@ a.mosaic-item:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(
 
 .idea-visual {
   padding-bottom: 140px;
-  display: grid;
-  grid-template-columns: 1fr .85fr;
-  align-items: stretch;
 }
-.idea-visual .frame-video { border-radius: 28px 0 0 28px; }
 .idea-visual blockquote {
   margin: 0;
   padding: clamp(40px, 7vw, 90px);
@@ -617,7 +613,7 @@ a.mosaic-item:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(
   justify-content: center;
   color: var(--white);
   background: linear-gradient(145deg, #0b2c58, #1769e0);
-  border-radius: 0 28px 28px 0;
+  border-radius: 28px;
   font: 500 clamp(28px, 3.6vw, 48px)/1.6 "Hiragino Mincho ProN", "Yu Mincho", serif;
 }
 .idea-visual blockquote span { margin-bottom: 30px; color: #83e1d6; font: 800 10px/1 sans-serif; letter-spacing: .22em; }
@@ -692,9 +688,8 @@ a.mosaic-item:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(
   .page-hero { min-height: 500px; grid-template-columns: 1fr; padding-top: 100px; }
   .page-hero .eyebrow { grid-column: auto; }
   .profile-intro { grid-template-columns: 1fr; }
-  .visual-story, .idea-visual { grid-template-columns: 1fr; }
-  .idea-visual .frame-video { border-radius: 28px 28px 0 0; }
-  .idea-visual blockquote { min-height: 420px; border-radius: 0 0 28px 28px; }
+  .visual-story { grid-template-columns: 1fr; }
+  .idea-visual blockquote { min-height: 320px; }
   .portrait-triptych { grid-template-columns: 1fr 1fr; }
   .portrait-triptych figure:last-child { grid-column: 1 / -1; }
   .logic-flow { grid-template-columns: 1fr 1fr; }
