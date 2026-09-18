@@ -1,12 +1,13 @@
 import { ArrowLink } from "@/components/ArrowLink";
 import { ContentImage } from "@/components/ContentImage";
 import { ideas, sources, timeline } from "@/lib/data";
+import { images } from "@/lib/images";
 
 const mosaicImages = [
-  ["media-consulting.jpg", "PIVOT CAREER：コンサル業界地図"],
-  ["media-semiconductor.jpg", "PIVOT CAREER：半導体産業地図"],
-  ["media-ma.jpg", "バトンズ：M&A後のリアル"],
-  ["media-cambria.jpg", "カンブリア宮殿：アイデアの扉"],
+  { src: images.mediaConsulting, alt: "PIVOT CAREER：コンサル業界地図" },
+  { src: images.mediaSemiconductor, alt: "PIVOT CAREER：半導体産業地図" },
+  { src: images.mediaMa, alt: "バトンズ：M&A後のリアル" },
+  { src: images.mediaCambria, alt: "カンブリア宮殿：アイデアの扉" },
 ] as const;
 
 export default function Home() {
@@ -32,13 +33,14 @@ export default function Home() {
             </ArrowLink>
           </div>
         </div>
-        <figure className="hero-portrait" data-reveal>
+        <figure className="hero-portrait frame-portrait" data-reveal>
           <ContentImage
-            src="/images/photo-01.jpg"
+            src={images.photo01}
             alt="スーツ姿で正面を見つめる大澤陽樹氏"
             fill
             priority
-            sizes="(max-width: 860px) 90vw, 42vw"
+            variant="portrait"
+            sizes="(max-width: 860px) 90vw, 38vw"
           />
           <span className="portrait-line">MEANING</span>
           <div className="portrait-caption">
@@ -67,12 +69,13 @@ export default function Home() {
       </section>
 
       <section className="visual-story section-shell">
-        <figure className="visual-story-main" data-reveal>
+        <figure className="visual-story-main frame-portrait" data-reveal>
           <ContentImage
-            src="/images/photo-02.jpg"
+            src={images.photo02}
             alt="対話しながら手振りを交えて話す大澤陽樹氏"
             fill
-            sizes="(max-width: 860px) 100vw, 58vw"
+            variant="portrait"
+            sizes="(max-width: 860px) 100vw, 52vw"
           />
         </figure>
         <div className="visual-story-copy" data-reveal>
@@ -136,14 +139,9 @@ export default function Home() {
             <ArrowLink href="/media">メディア活動</ArrowLink>
           </div>
           <div className="mosaic-grid">
-            {mosaicImages.map(([image, alt], index) => (
-              <figure key={image} className={`mosaic-item mosaic-${index + 1}`} data-reveal>
-                <ContentImage
-                  src={`/images/${image}`}
-                  alt={alt}
-                  fill
-                  sizes="(max-width: 700px) 100vw, 34vw"
-                />
+            {mosaicImages.map((item, index) => (
+              <figure key={item.src} className={`mosaic-item frame-video mosaic-${index + 1}`} data-reveal>
+                <ContentImage src={item.src} alt={item.alt} fill variant="video" sizes="(max-width: 700px) 100vw, 34vw" />
               </figure>
             ))}
           </div>

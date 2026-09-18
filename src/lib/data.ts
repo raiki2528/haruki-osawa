@@ -1,3 +1,5 @@
+import { images } from "@/lib/images";
+
 export type TimelineItem = {
   year: string;
   title: string;
@@ -127,7 +129,7 @@ export const media: MediaItem[] = [
     outlet: "PIVOT CAREER",
     title: "INDUSTRY MAP 2026「コンサルティング業界の業界地図」前後編",
     href: "https://www.youtube.com/watch?v=lh8xYt7xsPo",
-    image: "/images/media-consulting.jpg",
+    image: images.mediaConsulting,
   },
   {
     date: "2026.08",
@@ -147,7 +149,7 @@ export const media: MediaItem[] = [
     outlet: "PIVOT CAREER",
     title: "INDUSTRY MAP 2026「半導体産業の業界地図」前後編",
     href: "https://www.youtube.com/watch?v=P1IPBjR_MEc",
-    image: "/images/media-semiconductor.jpg",
+    image: images.mediaSemiconductor,
   },
   {
     date: "2026.07",
@@ -155,7 +157,7 @@ export const media: MediaItem[] = [
     outlet: "バトンズ公式チャンネル",
     title: "M&A後のリアル：8社買収し家業を急成長させた社長",
     href: "https://www.youtube.com/watch?v=vbnsCqqlVbk",
-    image: "/images/media-ma.jpg",
+    image: images.mediaMa,
   },
   {
     date: "2026.06",
@@ -170,7 +172,7 @@ export const media: MediaItem[] = [
     outlet: "バトンズ公式チャンネル",
     title: "M&A後のリアル：M&Aで飛躍するエンタメ企業",
     href: "https://youtu.be/r733hn3fZk4",
-    image: "/images/media-talk.jpg",
+    image: images.mediaTalk,
   },
   {
     date: "2026.03",
@@ -184,7 +186,7 @@ export const media: MediaItem[] = [
     outlet: "PIVOT",
     title: "電通「働きがい1位」の真相",
     href: "https://youtu.be/sg0PLYdkjC0",
-    image: "/images/media-dentsu.jpg",
+    image: images.mediaDentsu,
   },
   {
     date: "2025.03–",
@@ -220,7 +222,7 @@ export const media: MediaItem[] = [
     outlet: "PIVOT",
     title: "社員クチコミ評価スコアを使ったキャリアの導き方",
     href: "https://www.youtube.com/watch?v=VCV0d7gMHnw",
-    image: "/images/media-career.jpg",
+    image: images.mediaCareer,
   },
   {
     date: "2023.07",
@@ -235,7 +237,7 @@ export const media: MediaItem[] = [
     outlet: "転職のサラタメチャンネル",
     title: "『1300万件のクチコミで分かった超優良企業』を解説",
     href: "https://www.youtube.com/watch?v=-R0uL7l1Tuw",
-    image: "/images/media-book.jpg",
+    image: images.mediaBook,
   },
   {
     date: "2021.12",
@@ -243,7 +245,7 @@ export const media: MediaItem[] = [
     outlet: "日経スペシャル カンブリア宮殿",
     title: "企画CM「アイデアの扉」",
     href: "https://www.youtube.com/watch?v=MSisNKgjZ68",
-    image: "/images/media-cambria.jpg",
+    image: images.mediaCambria,
   },
 ];
 

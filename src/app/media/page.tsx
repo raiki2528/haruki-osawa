@@ -65,7 +65,7 @@ export default function MediaPage() {
         <div className="featured-media-grid">
           {featuredMedia.map((item, index) => (
             <a
-              className={index === 0 ? "featured-media featured-media-lead" : "featured-media"}
+              className={`frame-video featured-media ${index === 0 ? "featured-media-lead" : ""}`}
               href={item.href}
               target="_blank"
               rel="noreferrer"
@@ -74,8 +74,9 @@ export default function MediaPage() {
             >
               <ContentImage
                 src={item.image!}
-                alt=""
+                alt={item.title}
                 fill
+                variant="video"
                 sizes={index === 0 ? "(max-width: 860px) 100vw, 70vw" : "(max-width: 860px) 100vw, 34vw"}
               />
               <span>{item.outlet}</span>

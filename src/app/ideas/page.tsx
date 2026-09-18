@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContentImage } from "@/components/ContentImage";
 import { ideas, sources } from "@/lib/data";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Ideas",
@@ -36,11 +37,12 @@ export default function IdeasPage() {
       </section>
 
       <section className="idea-visual section-shell">
-        <figure data-reveal>
+        <figure className="frame-video" data-reveal>
           <ContentImage
-            src="/images/media-talk.jpg"
+            src={images.mediaTalk}
             alt="経営者対談番組での出演シーン"
             fill
+            variant="video"
             sizes="(max-width: 860px) 100vw, 52vw"
           />
         </figure>

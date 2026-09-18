@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLink } from "@/components/ArrowLink";
 import { ContentImage } from "@/components/ContentImage";
 import { books, sources, timeline } from "@/lib/data";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Profile / Story",
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const galleryImages = [
-  { src: "/images/portrait.jpg", alt: "笑顔の大澤陽樹氏のクローズアップ" },
-  { src: "/images/media-dentsu.jpg", alt: "PIVOT出演：電通の働きがいを検証" },
-  { src: "/images/media-career.jpg", alt: "キャリアとクチコミスコアを語る登壇" },
-] as const;
+  { src: images.portrait, alt: "笑顔の大澤陽樹氏のクローズアップ" },
+  { src: images.mediaDentsu, alt: "PIVOT出演：電通の働きがいを検証", variant: "video" as const },
+  { src: images.mediaCareer, alt: "キャリアとクチコミスコアを語る登壇", variant: "video" as const },
+];
 
 export default function ProfilePage() {
   return (
@@ -28,12 +29,13 @@ export default function ProfilePage() {
       </section>
 
       <section className="profile-intro section-shell">
-        <figure className="profile-photo" data-reveal>
+        <figure className="profile-photo frame-portrait" data-reveal>
           <ContentImage
-            src="/images/photo-03.jpg"
+            src={images.photo03}
             alt="オフィスで立つ大澤陽樹氏"
             fill
-            sizes="(max-width: 860px) 100vw, 42vw"
+            variant="portrait"
+            sizes="(max-width: 860px) 100vw, 40vw"
           />
           <figcaption>Haruki Ohsawa / OpenWork Inc.</figcaption>
         </figure>
@@ -59,8 +61,18 @@ export default function ProfilePage() {
 
       <section className="portrait-triptych section-shell" aria-label="ポートレートと登壇">
         {galleryImages.map((item) => (
-          <figure key={item.src} data-reveal>
-            <ContentImage src={item.src} alt={item.alt} fill sizes="(max-width: 860px) 100vw, 33vw" />
+          <figure
+            key={item.src}
+            className={item.variant === "video" ? "frame-video" : "frame-portrait"}
+            data-reveal
+          >
+            <ContentImage
+              src={item.src}
+              alt={item.alt}
+              fill
+              variant={item.variant ?? "portrait"}
+              sizes="(max-width: 860px) 100vw, 30vw"
+            />
           </figure>
         ))}
       </section>
